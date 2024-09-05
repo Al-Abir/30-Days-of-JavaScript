@@ -17,21 +17,27 @@ var expect = function(val) {
     };
 };
 
-// Example usage:
+// Example 1
 try {
-    console.log(expect(5).toBe(5)); // true
-} catch (e) {
-    console.error(e.message); // Error handling for toBe
+    let result = expect(5).toBe(5);
+    console.log({ value: result }); // Output: { value: true }
+} catch (error) {
+    console.log({ error: error.message });
 }
 
+// Example 2
 try {
-    console.log(expect(5).notToBe(10)); // true
-} catch (e) {
-    console.error(e.message); // Error handling for notToBe
+    let result = expect(5).toBe(null);
+    console.log({ value: result });
+} catch (error) {
+    console.log({ error: error.message }); // Output: { error: "Not Equal" }
 }
 
+// Example 3
 try {
-    console.log(expect(5).notToBe(5)); // throws "Equal"
-} catch (e) {
-    console.error(e.message); // Error handling for notToBe
+    let result = expect(5).notToBe(null);
+    console.log({ value: result }); // Output: { value: true }
+} catch (error) {
+    console.log({ error: error.message });
 }
+
