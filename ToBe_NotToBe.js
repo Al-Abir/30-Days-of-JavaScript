@@ -20,24 +20,41 @@ var expect = function(val) {
 // Example 1
 try {
     let result = expect(5).toBe(5);
-    console.log({ value: result }); // Output: { value: true }
+    console.log(JSON.stringify({ "value": result })); // Output: {"value": true}
 } catch (error) {
-    console.log({ error: error.message });
+    console.log(JSON.stringify({ "error": error.message })); // Output: {"error": "Not Equal"}
 }
 
 // Example 2
 try {
     let result = expect(5).toBe(null);
-    console.log({ value: result });
+    console.log(JSON.stringify({ "value": result }));
 } catch (error) {
-    console.log({ error: error.message }); // Output: { error: "Not Equal" }
+    console.log(JSON.stringify({ "error": error.message })); // Output: {"error": "Not Equal"}
 }
 
 // Example 3
 try {
     let result = expect(5).notToBe(null);
-    console.log({ value: result }); // Output: { value: true }
+    console.log(JSON.stringify({ "value": result })); // Output: {"value": true}
 } catch (error) {
-    console.log({ error: error.message });
+    console.log(JSON.stringify({ "error": error.message })); 
 }
+
+// Example 2
+try {
+    let result = expect(5).toBe(null);
+    console.log({ "value": result });
+} catch (error) {
+    console.log({ "error": error.message }); // Output: {"error": "Not Equal"}
+}
+
+// Example 3
+try {
+    let result = expect(5).notToBe(null);
+    console.log({ "value": result }); // Output: {"value": true}
+} catch (error) {
+    console.log({ "error": error.message }); 
+}
+
 
